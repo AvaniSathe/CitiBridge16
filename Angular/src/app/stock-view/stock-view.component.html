@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<body>
+<div class="stock-img">
+
+<div class="w3-sidebar w3-bar-block w3-card w3-blue textcolor"  style="width:150px">
+  <h5 class="w3-bar-item">MENU</h5>
+  
+  <button class="w3-bar-item w3-button tablink fontstyle" onclick="openCity(event, 'ARBITRAGE')">ARBITRAGE</button>
+  <button class="w3-bar-item w3-button tablink fontstyle" (click)="onWishList()" onclick="openCity(event, 'WISHLIST')">SAVED STOCKS</button>
+  <button class="w3-bar-item w3-button tablink fontstyle" (click)="onNews()" onclick="openCity(event, 'NEWS')">NEWS</button>
+  <button class="w3-bar-item w3-button tablink fontstyle" onclick="openCity(event, 'LOGOUT')">LOGOUT</button>
+  
+</div>
+
+<div style="margin-left:20px">
+<marquee direction="left">
+<h1 style="margin-left: 300px" class="fontstyle">NSE BSE ARBITRAGE RECOMMENDATION SYSTEM</h1>
+</marquee>
+  
+  <div id="ARBITRAGE" class="w3-container city" style="display:none">
+
+<body>
+<section id="about" class="about-us">
+      <form>
+<label style= "margin-right:30px" class="fontstyle">Company Name</label>
+	<select [(ngModel)]="companyName" name="companyName" style="width:200px" style="margin-top:20px">
+	 <option value=""  class="fontstyle" selected disabled hidden>Select Company name</option>
+		<option class="fontstyle" value="TCS">Tata Consultancy Services</option>
+		<option class="fontstyle" value="Infy">Infosys</option>
+		<option class="fontstyle" value="ACC">Ambuja Cement Company</option>
+		<option class="fontstyle" value="BEML">Bharat Earth Movers Limited</option>
+		<option class="fontstyle" value="BASF">Badische Anilin und Soda Fabrik</option>
+		<option class="fontstyle" value="CCL">Central Coal Fields LTD</option>
+		<option class="fontstyle" value="CRISIL">Credit Rating Information Services of India Limited</option>
+		<option class="fontstyle" value="DCM">Delhi Cloth Mills</option>
+		<option class="fontstyle" value="dishtv">Dish TV</option>
+		<option class="fontstyle" value="DELTACORP">Delta Corp LTD</option>
+		<option class="fontstyle" value="DLF">Delhi Land and Finance</option>
+		<option class="fontstyle" value="Emamiltd">Emami LTD</option>
+		<option class="fontstyle" value="Escorts">Escorts Group</option>
+		<option class="fontstyle" value="Wipro">Wipro</option>
+		<option class="fontstyle" value="GAIL">Gail </option>
+		
+		
+
+	</select>
+<label style= "margin:50px 30px 500px" class="fontstyle" >Buy/Sell</label>
+<select [(ngModel)]="transaction" name="transaction" style="width:300px" style= "margin-left:62px">
+        <option class="fontstyle" value="" selected disabled hidden></option>
+		<option class="fontstyle" value="Buy">Buy</option>
+        <option class="fontstyle"  value="Sell">Sell</option>
+	</select>
+
+<style>
+form {
+  font-size: 30px;
+
+  font-family: "Times New Roman", Times, serif;
+
+}
+</style>
+</form>
+<br>
+<br>
+<br>
+
+<style>
+
+label {
+    line-height: 3;
+    padding-left: 250px;
+}
+</style>
+
+
+            <style>
+                .button {
+                  background-color:#34A0FA       ; /* Green */
+                  border: none;
+                  color: white;
+                  padding: 15px;
+                  text-align: center;
+                  text-decoration: none;
+                  display: inline-block;
+                  font-size: 25px;
+                  margin: 10px;
+                  cursor: pointer;
+                   font-family:"lato";
+         
+                  
+margin-left: 30%;
+                }
+                
+                
+                .button4 {border-radius: 16px;}
+                
+                </style>
+                <body>
+                <button (click)="onSubmit()"  class="button button4" style="margin-left:400px">Submit</button>
+                    <button (click)="AddtoWishlist()" class="button button4" style="margin-left:200px">Save Stocks </button>
+              </body>
+         <!-- <button type="button">Submit</button> -->
+<br>
+<br>
+
+       <div class="w3-container fontstyle" style="margin-left:400px; margin-right:350px" >
+  <div class="w3-panel w3-card w3-blue fontstyle"><p style="font-size:25px">{{NSEData}} {{BSEData}}</p></div>
+  <div class="w3-panel w3-card w3-blue fontstyle"><p style="font-size:25px">{{arbitrage}}</p></div>
+  <div class="w3-panel w3-card-2 w3-green fontstyle"><p style="font-size:30px ; margin-left:120px">{{recommendation}}</p></div>
+</div>
+
+         
+        
+         
+     
+         
+              </section><!--/.about-us-->
+
+
+
+
+</body>
+
+
+
+
+
+
+  </div>
+
+  <div id="WISHLIST" class="w3-container city" style="display:none">
+    <body>
+
+<style>
+body{
+color:white;
+}
+
+</style>
+
+<table>
+
+<style>
+
+  
+
+
+  table {
+    border-collapse: collapse;
+    font-family:"lato";
+  }
+  th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+  }
+  tr:nth-child(even) {
+    background-color: #66C6F6;
+  }
+  tr:nth-child(odd) {
+    background-color: #2791C6;
+  }            
+  
+table{
+font-size:20px;
+margin:50px 130px;
+}
+
+th, td {  text-align: center;
+}
+</style>
+ <div class="w3-panel w3-card">
+  <tr>
+    <th>Company Name</th>
+    <th> NSE </th>
+    <th> BSE </th>
+    <th>Arbitrage</th>
+     <th>Current Market Price</th>
+     <th>Transaction Date</th>
+  </tr>
+<tr *ngFor="let xyz of userWishList">
+ 
+       <td> {{xyz.companyName}}</td>
+        <td> {{xyz.nse}}</td>
+         <td> {{xyz.bse}}</td>
+       <td> {{xyz.arbitrage}}</td>
+       <td> {{xyz.currentMarketPrice}}</td>
+       <td> {{xyz.transactionDate}}</td>
+    </tr>
+     </div>
+  </table>
+ 
+
+
+
+</body>
+  </div>
+  
+<div id="NEWS" class="w3-container city" style="display:none">
+<body>
+
+<style>
+body{
+color:white;
+font-size:20px;
+}
+
+</style>
+<ul style = "margin-left:100px" class="fontstyle">
+<marquee direction="up" loop height="600" onmouseover="this.stop();" onmouseout="this.start();" scrollamount="4"> 
+  <li *ngFor = "let xyz of article" style="font-size: 25px">
+  
+    {{xyz['title']}}
+    <br><br><br>
+  </li>
+  </marquee>
+  
+</ul>
+
+
+</body>
+</div>
+
+<div id="LOGOUT" class="w3-container city" style="display:none">
+<body>
+
+<style>
+body{
+color:white;
+}
+
+</style>
+<h2 style="margin-left:520px" class="fontstyle"> Do You want to Logout ?</h2>
+<button style ="margin-left:580px;margin-top:50px"(click)="onLogout()"  class="button button4">Yes</button>
+<button style ="margin-left:30px;margin-top:50px"(click)="no()" class="button button4">No</button>
+
+
+</body>
+</div>
+
+  
+</div>
+</div>
+
+</body>
+</html>
+
